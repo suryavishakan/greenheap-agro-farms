@@ -126,3 +126,34 @@ html,
 body {
   height: 100%;
 }
+
+table {
+  border-collapse: collapse;
+  background-color: white;
+  text-align: left;
+  overflow: hidden;
+}
+
+table,
+thead {
+  box-shadow: 0 1px 10px rgb(211, 211, 211);
+}
+
+tbody {
+  font-weight: 400;
+}
+
+th {
+  text-transform: capitalize;
+  letter-spacing: 0.1rem;
+  font-weight: 600;
+}
+
+td,
+th {
+  padding: 1rem 2rem;
+}
+
+tr:nth-child(even) {
+  background-color: rgb(247, 251, 255);
+}

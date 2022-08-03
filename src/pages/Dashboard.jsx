@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 // react router
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Outlet } from "react-router-dom";
 // firebase
 import { getAuth } from "firebase/auth";
 // components
@@ -22,7 +22,7 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="container mx-auto h-56">
+    <div className="container mx-auto h-screen">
       <header className="flex justify-between items-center py-2 font-medium">
         {user ? <h1>Hello {user.displayName}</h1> : "Not logged in"}
         <button
@@ -33,6 +33,7 @@ const Dashboard = () => {
         </button>
       </header>
       <Clients />
+      <Outlet />
     </div>
   );
 };
