@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 // firebase
-import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { doc, updateDoc, getDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebase/firebase.config";
 // react toastify
 import { toast } from "react-toastify";
 
-const AddUpdate = () => {
+const EditClient = () => {
   const initialState = {
     docNo: "",
     name: "",
@@ -37,7 +37,11 @@ const AddUpdate = () => {
     status,
   } = data;
 
+  const [client, setClient] = useState(null);
+  const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
+  const params = useParams();
 
   const handleChange = (e) => {
     setData((prev) => ({
@@ -45,6 +49,25 @@ const AddUpdate = () => {
       [e.target.id]: e.target.value,
     }));
   };
+
+  //   fetch clients to edit
+  useEffect(() => {
+    setLoading(true);
+    const fetchClient = async () => {
+      const docRef = doc(db, "clients", params.id);
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists) {
+        setClient(docSnap.data());
+        setData({ ...docSnap.data() });
+        setLoading(false);
+      } else {
+        navigate("/dashboard");
+        toast.error("client does not exist");
+      }
+    };
+    fetchClient();
+  }, [params.id, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -54,15 +77,20 @@ const AddUpdate = () => {
 
     // add a new document in collection clients
     try {
-      await addDoc(collection(db, "clients"), dataCopy);
-      toast.success("client added successfully!");
+      const docRef = doc(db, "clients", params.id);
+      await updateDoc(docRef, dataCopy);
+      toast.success("client updated successfully!");
       setData(initialState);
+      console.log(client);
       navigate("/dashboard");
     } catch (err) {
       toast.error("Unable to add user 😥");
     }
   };
 
+  if (loading) {
+    return <h3>Loading...</h3>;
+  }
   return (
     <div className="container mx-auto">
       <Link to="/dashboard">Back</Link>
@@ -260,11 +288,11 @@ const AddUpdate = () => {
           className="border-2 text-sm mt-1 w-full p-2 indent-1 rounded-lg focus:outline-none mb-2"
         />
         <button className="bg-slate-100 w-full text-center p-2 text-sm rounded-full">
-          Add Client
+          Edit Client
         </button>
       </form>
     </div>
   );
 };
 
-export default AddUpdate;
+export default EditClient;

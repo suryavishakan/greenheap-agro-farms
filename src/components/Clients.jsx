@@ -1,68 +1,36 @@
-import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-// firebase
-import {
-  doc,
-  getDocs,
-  collection,
-  where,
-  orderBy,
-  limit,
-  startAfter,
-  query,
-} from "firebase/firestore";
-import { db } from "../firebase/firebase.config";
 // components
 import ClientsTable from "./ClientsTable";
+// hooks
+import { useCollection } from "../hooks/useCollection";
 
 const Clients = () => {
-  const [clients, setClients] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const getData = async () => {
-      try {
-        // get a reference
-        const docRef = collection(db, "clients");
-
-        // create a query
-        const q = query(docRef, orderBy("timeStamp", "desc"), limit(10));
-
-        // execute query
-        const docSnap = await getDocs(q);
-
-        const clients = [];
-
-        docSnap.forEach((doc) => {
-          return clients.push({
-            id: doc.id,
-            data: doc.data(),
-          });
-        });
-        setClients(clients);
-        setLoading(false);
-        console.log(clients.data());
-      } catch (err) {
-        console.log("error fetching data");
-      }
-    };
-    getData();
-  }, []);
+  const { documents: clients, loading } = useCollection("clients");
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto py-10">
       <div className="flex justify-between items-center">
         <h3 className="font-medium">Clients</h3>
-        <Link to="/dashboard/add-client">
-          <button className="text-sm font-medium">Add client</button>
-        </Link>
+        <div className="flex items-center justify-between">
+          <div className="flex items-center cursor-pointer">
+            <lord-icon
+              src="https://cdn.lordicon.com/pvbutfdk.json"
+              trigger="hover"
+              style={{ width: "20px", height: "20px" }}
+            ></lord-icon>
+            <span className="text-sm font-medium mr-4">Search</span>
+          </div>
+          <Link to="/dashboard/add-client">
+            <button className="text-sm font-medium">Add client</button>
+          </Link>
+        </div>
       </div>
       {loading ? (
         <h3>Loading...</h3>
       ) : clients && clients.length > 0 ? (
         <>
-          <div className="overflow-auto">
-            <table className="text-xs">
+          <div className="overflow-auto pt-10">
+            <table className="text-sm ">
               <thead>
                 <tr>
                   <th>Doc No</th>
