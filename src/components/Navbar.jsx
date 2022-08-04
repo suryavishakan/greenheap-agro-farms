@@ -2,7 +2,7 @@ import React from "react";
 // react router dom
 import { Link } from "react-router-dom";
 // images
-import logo from "../assets/agrofarm.jpg";
+import logo from "../assets/logo.svg";
 
 const navItems = [
   { id: 1, name: "Login", link: "/sign-in" },

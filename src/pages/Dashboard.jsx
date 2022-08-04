@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 // react router
-import { useNavigate, Outlet } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 // firebase
 import { getAuth } from "firebase/auth";
 // components
@@ -33,7 +33,6 @@ const Dashboard = () => {
         </button>
       </header>
       <Clients />
-      <Outlet />
     </div>
   );
 };

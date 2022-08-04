@@ -136,7 +136,19 @@ table {
 
 table,
 thead {
-  box-shadow: 0 1px 10px rgb(211, 211, 211);
+  box-shadow: 0 1px 4px rgb(211, 211, 211);
+}
+
+table,
+th,
+td {
+  border-right: 1px solid rgb(236, 235, 235);
+}
+
+table:last-child,
+th:last-child,
+td:last-child {
+  border-right: none;
 }
 
 tbody {

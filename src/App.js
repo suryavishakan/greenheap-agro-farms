@@ -13,6 +13,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import AddClient from "./components/AddClient";
 import EditClient from "./components/EditClient";
 import Client from "./components/Client";
+import Search from "./pages/Search";
 
 function App() {
   return (
@@ -24,14 +25,11 @@ function App() {
           <Route path="/sign-up" element={<SignUp />} />
           {/* 👇 Only authenticated users can access the dashboard */}
           <Route path="/dashboard" element={<PrivateRoute />}>
-            <Route path="/dashboard" element={<Dashboard />}>
-              <Route path="/dashboard/add-client" element={<AddClient />} />
-              <Route
-                path="/dashboard/edit-client/:id"
-                element={<EditClient />}
-              />
-              <Route path="/dashboard/client/:id" element={<Client />} />
-            </Route>
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/dashboard/add-client" element={<AddClient />} />
+            <Route path="/dashboard/edit-client/:id" element={<EditClient />} />
+            <Route path="/dashboard/client/:id" element={<Client />} />
+            <Route path="/dashboard/search/:name" element={<Search />} />
           </Route>
           <Route path="/forgot-password" element={<ForgotPassword />} />
         </Routes>
