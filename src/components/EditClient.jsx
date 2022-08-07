@@ -15,6 +15,7 @@ const EditClient = () => {
     address: "",
     contact: "",
     email: "",
+    village: "",
     extent: "",
     documents: "",
     remarks: "",
@@ -30,6 +31,7 @@ const EditClient = () => {
     address,
     contact,
     email,
+    village,
     extent,
     documents,
     remarks,
@@ -205,6 +207,22 @@ const EditClient = () => {
           value={email}
           onChange={handleChange}
           placeholder="Enter client email"
+          className="border-2 text-sm mt-1 w-full p-2 indent-1 rounded-lg focus:outline-none mb-2"
+        />
+        {/* Input for place */}
+        <label
+          htmlFor="place"
+          className="after:content-['*'] after:ml-0.5 after:text-red-500 text-sm"
+        >
+          Place
+        </label>
+        <input
+          type="text"
+          name="place"
+          id="place"
+          value={village}
+          onChange={handleChange}
+          placeholder="Enter place"
           className="border-2 text-sm mt-1 w-full p-2 indent-1 rounded-lg focus:outline-none mb-2"
         />
         {/* Input for extent */}

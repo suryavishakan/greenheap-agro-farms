@@ -39,7 +39,7 @@ const Clients = () => {
       <div className="flex justify-between items-center">
         <h3 className="font-medium text-lg">Dashboard</h3>
         <div className="flex">
-          <h3 className="mr-2">Filter Villages : </h3>
+          <h3 className="mr-2">Filter Places : </h3>
           {clients &&
             clients.map((client) => (
               <React.Fragment key={client.id}>
