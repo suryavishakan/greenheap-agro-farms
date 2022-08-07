@@ -1,11 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 // firebase
 import { db } from "../firebase/firebase.config";
 import { doc, deleteDoc } from "firebase/firestore";
 // icons
 import { MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
-import { Link } from "react-router-dom";
 
 const ClientsTable = ({ client, id, index }) => {
   // delete document

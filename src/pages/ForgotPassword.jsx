@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+// firebase
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
+// react toastify
 import { toast } from "react-toastify";
 
 const ForgotPassword = () => {
