@@ -58,7 +58,7 @@ const SignIn = () => {
           htmlFor="email"
           className="after:content-['*'] after:ml-0.5 after:text-red-500"
         >
-          What's your email?
+          Enter your email?
         </label>
         <input
           type="email"
@@ -76,7 +76,7 @@ const SignIn = () => {
             htmlFor="password"
             className="after:content-['*'] after:ml-0.5 after:text-red-500"
           >
-            Create a strong password
+            Enter your password
           </label>
           <div
             className="flex items-center"
