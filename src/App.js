@@ -14,6 +14,8 @@ import AddClient from "./components/AddClient";
 import EditClient from "./components/EditClient";
 import Client from "./components/Client";
 import Search from "./pages/Search";
+import Status from "./pages/Status";
+import Place from "./pages/Place";
 
 function App() {
   return (
@@ -30,6 +32,8 @@ function App() {
             <Route path="/dashboard/edit-client/:id" element={<EditClient />} />
             <Route path="/dashboard/client/:id" element={<Client />} />
             <Route path="/dashboard/search/:name" element={<Search />} />
+            <Route path="/dashboard/:status" element={<Status />} />
+            <Route path="/dashboard/place/:place" element={<Place />} />
           </Route>
           <Route path="/forgot-password" element={<ForgotPassword />} />
         </Routes>

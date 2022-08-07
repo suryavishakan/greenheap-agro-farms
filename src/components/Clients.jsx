@@ -1,5 +1,4 @@
-import { useState } from "react";
-
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 // components
 import ClientsTable from "./ClientsTable";
@@ -23,17 +22,56 @@ const Clients = () => {
     setSearch("");
   };
 
+  const handlePending = () => {
+    navigate("/dashboard/pending");
+  };
+
+  const handleComplete = () => {
+    navigate("/dashboard/completed");
+  };
+
+  const handleVillage = (place) => {
+    navigate(`/dashboard/place/${place}`);
+  };
+
   return (
-    <div className="container mx-auto py-10">
+    <div className="container mx-auto py-10 px-10">
       <div className="flex justify-between items-center">
-        <h3 className="font-medium">Dashboard</h3>
+        <h3 className="font-medium text-lg">Dashboard</h3>
+        <div className="flex">
+          <h3 className="mr-2">Filter Villages : </h3>
+          {clients &&
+            clients.map((client) => (
+              <React.Fragment key={client.id}>
+                <span>#</span>
+                <p
+                  className="underline underline-offset-1 mr-1 cursor-pointer"
+                  onClick={(e) => handleVillage(e.target.innerHTML)}
+                >
+                  {client.data.village}
+                </p>
+              </React.Fragment>
+            ))}
+        </div>
         <div className="flex items-center justify-between">
+          <button
+            className="py-2 px-4 rounded-lg bg-orange-100 text-sm mr-2"
+            onClick={handlePending}
+          >
+            Pending
+          </button>
+          <button
+            className="py-2 px-4 rounded-lg bg-green-100 text-sm mr-2"
+            onClick={handleComplete}
+          >
+            Completed
+          </button>
           <form className="flex border-2 rounded mr-4" onSubmit={handleSubmit}>
             <input
               type="search"
               id="search-dropdown"
               className="py-1.5 px-2 indent-2 text-sm  bg-gray-50 border border-gray-300 focus:outline-none rounded-tl-lg rounded-bl-lg"
-              placeholder="Search name..."
+              placeholder="Search contact..."
               value={search}
               onChange={handleChange}
             />
@@ -74,6 +112,7 @@ const Clients = () => {
             <table className="text-sm ">
               <thead>
                 <tr>
+                  <th>S.No</th>
                   <th>Doc No</th>
                   <th>Name</th>
                   <th>Client Details (Family)</th>
@@ -81,18 +120,21 @@ const Clients = () => {
                   <th>Address</th>
                   <th>Contact</th>
                   <th>Email</th>
+                  <th>Place</th>
                   <th>Extent</th>
                   <th>Documents Submitted</th>
                   <th>Remarks</th>
                   <th>Report</th>
+                  <th>Status</th>
                 </tr>
               </thead>
               <tbody>
-                {clients.map((client) => (
+                {clients.map((client, index) => (
                   <ClientsTable
                     client={client}
                     id={client.id}
                     key={client.id}
+                    index={index}
                   />
                 ))}
               </tbody>

@@ -124,7 +124,9 @@ body {
 
 html,
 body {
+  font-size: 90%;
   height: 100%;
+  font-weight: 500;
 }
 
 table {
@@ -132,6 +134,7 @@ table {
   background-color: white;
   text-align: left;
   overflow: hidden;
+  white-space: nowrap;
 }
 
 table,
@@ -157,13 +160,12 @@ tbody {
 
 th {
   text-transform: capitalize;
-  letter-spacing: 0.1rem;
   font-weight: 600;
+  padding: 0.5rem 1rem;
 }
 
-td,
-th {
-  padding: 1rem 2rem;
+td {
+  padding: 0.2rem 1rem;
 }
 
 tr:nth-child(even) {

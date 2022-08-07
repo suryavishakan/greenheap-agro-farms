@@ -13,7 +13,7 @@ import { db } from "../firebase/firebase.config";
 // components
 import ClientsTable from "../components/ClientsTable";
 
-const Search = () => {
+const Status = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -27,7 +27,7 @@ const Search = () => {
         // create a query
         const q = query(
           collectionRef,
-          where("contact", "==", params.name),
+          where("status", "==", params.status),
           orderBy("timeStamp", "asc"),
           limit(10)
         );
@@ -49,7 +49,7 @@ const Search = () => {
       }
     };
     searchClient();
-  }, [params.name]);
+  }, [params.status]);
   return (
     <>
       {loading ? (
@@ -65,7 +65,6 @@ const Search = () => {
             <table className="text-sm ">
               <thead>
                 <tr>
-                  <th>S.No</th>
                   <th>Doc No</th>
                   <th>Name</th>
                   <th>Client Details (Family)</th>
@@ -73,12 +72,10 @@ const Search = () => {
                   <th>Address</th>
                   <th>Contact</th>
                   <th>Email</th>
-                  <th>Village</th>
                   <th>Extent</th>
                   <th>Documents Submitted</th>
                   <th>Remarks</th>
                   <th>Report</th>
-                  <th>Status</th>
                 </tr>
               </thead>
               <tbody>
@@ -99,11 +96,11 @@ const Search = () => {
           <Link to="/dashboard">
             <p>Back</p>
           </Link>
-          <p>No clients in {params.name}</p>
+          <p>No clients with status {params.status}</p>
         </>
       )}
     </>
   );
 };
 
-export default Search;
+export default Status;

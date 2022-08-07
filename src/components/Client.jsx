@@ -28,7 +28,7 @@ const Client = () => {
   }
 
   return (
-    <>
+    <div className="container mx-auto py-20">
       <Link to="/dashboard">
         <p>Back</p>
       </Link>
@@ -64,6 +64,10 @@ const Client = () => {
               <td>{client.email}</td>
             </tr>
             <tr>
+              <td>Place</td>
+              <td>{client.place}</td>
+            </tr>
+            <tr>
               <td>Extent</td>
               <td>{client.extent}</td>
             </tr>
@@ -79,10 +83,14 @@ const Client = () => {
               <td>Report</td>
               <td>{client.report}</td>
             </tr>
+            <tr>
+              <td>Status</td>
+              <td>{client.status}</td>
+            </tr>
           </tbody>
         </table>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -9,6 +9,8 @@ import {
   limit,
 } from "firebase/firestore";
 import { db } from "../firebase/firebase.config";
+// toastify
+import { toast } from "react-toastify";
 
 export const useCollection = (c) => {
   const [documents, setDocuments] = useState(null);
@@ -16,14 +18,14 @@ export const useCollection = (c) => {
 
   useEffect(() => {
     let docRef = collection(db, c);
-    const unSub = onSnapshot(docRef, (snapshot) => {
+    const unSub = onSnapshot(docRef, () => {
       const getData = async () => {
         try {
           // get a reference
           const docRef = collection(db, "clients");
 
           // create a query
-          const q = query(docRef, orderBy("timeStamp", "desc"), limit(10));
+          const q = query(docRef, orderBy("timeStamp", "asc"), limit(10));
 
           // execute query
           const docSnap = await getDocs(q);
@@ -38,9 +40,8 @@ export const useCollection = (c) => {
           });
           setDocuments(clients);
           setLoading(false);
-          console.log(clients.data());
         } catch (err) {
-          console.log("error fetching data");
+          toast.error("Error fetching data");
         }
       };
       getData();

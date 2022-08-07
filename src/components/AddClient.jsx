@@ -20,6 +20,7 @@ const AddClient = () => {
     remarks: "",
     report: "",
     status: "",
+    village: "",
   };
   const [data, setData] = useState(initialState);
   const {
@@ -35,6 +36,7 @@ const AddClient = () => {
     remarks,
     report,
     status,
+    village,
   } = data;
 
   const navigate = useNavigate();
@@ -64,7 +66,7 @@ const AddClient = () => {
   };
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto py-12">
       <Link to="/dashboard">Back</Link>
       <form className="max-w-xl mx-auto px-3" onSubmit={handleSubmit}>
         {/* Input for docNo */}
@@ -179,6 +181,22 @@ const AddClient = () => {
           placeholder="Enter client email"
           className="border-2 text-sm mt-1 w-full p-2 indent-1 rounded-lg focus:outline-none mb-2"
         />
+        {/* Input for village */}
+        <label
+          htmlFor="village"
+          className="after:content-['*'] after:ml-0.5 after:text-red-500 text-sm"
+        >
+          Village
+        </label>
+        <input
+          type="text"
+          name="village"
+          id="village"
+          value={village}
+          onChange={handleChange}
+          placeholder="Enter place name"
+          className="border-2 text-sm mt-1 w-full p-2 indent-1 rounded-lg focus:outline-none mb-2"
+        />
         {/* Input for extent */}
         <label
           htmlFor="extent"
@@ -257,9 +275,13 @@ const AddClient = () => {
           value={status}
           onChange={handleChange}
           placeholder="Enter status"
-          className="border-2 text-sm mt-1 w-full p-2 indent-1 rounded-lg focus:outline-none mb-2"
+          className="border-2 text-sm mt-1 w-full p-2 indent-1 rounded-lg focus:outline-none"
         />
-        <button className="bg-slate-100 w-full text-center p-2 text-sm rounded-full">
+        <p className="text-xs ml-2 mt-0.5">
+          Please note : Status values can only be pending or completed
+        </p>
+        {/* Submit button */}
+        <button className="bg-slate-100 w-full text-center p-2 text-sm rounded-full mt-4 mb-4">
           Add Client
         </button>
       </form>
