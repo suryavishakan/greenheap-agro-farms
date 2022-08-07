@@ -15,12 +15,12 @@ const EditClient = () => {
     address: "",
     contact: "",
     email: "",
-    village: "",
     extent: "",
     documents: "",
     remarks: "",
     report: "",
     status: "",
+    village: "",
   };
   const [data, setData] = useState(initialState);
   const {
@@ -31,12 +31,12 @@ const EditClient = () => {
     address,
     contact,
     email,
-    village,
     extent,
     documents,
     remarks,
     report,
     status,
+    village,
   } = data;
 
   const [client, setClient] = useState(null);
@@ -212,15 +212,15 @@ const EditClient = () => {
         />
         {/* Input for place */}
         <label
-          htmlFor="place"
+          htmlFor="village"
           className="after:content-['*'] after:ml-0.5 after:text-red-500 text-sm"
         >
           Place
         </label>
         <input
           type="text"
-          name="place"
-          id="place"
+          name="village"
+          id="village"
           value={village}
           onChange={handleChange}
           placeholder="Enter place"
