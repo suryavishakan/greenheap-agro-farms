@@ -45,6 +45,7 @@ const EditClient = () => {
   const navigate = useNavigate();
   const params = useParams();
 
+  // handle input change
   const handleChange = (e) => {
     setData((prev) => ({
       ...prev,
