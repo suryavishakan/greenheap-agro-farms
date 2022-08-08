@@ -12,6 +12,8 @@ import {
 import { db } from "../firebase/firebase.config";
 // components
 import ClientsTable from "../components/ClientsTable";
+// icons
+import { MdOutlineArrowBackIos } from "react-icons/md";
 
 const Search = () => {
   const [data, setData] = useState(null);
@@ -57,10 +59,13 @@ const Search = () => {
           <h3>Loading...</h3>
         </div>
       ) : data && data.length > 0 ? (
-        <div className="container mx-auto py-20">
-          <Link to="/dashboard">
-            <p>Back</p>
-          </Link>
+        <div className="container mx-auto py-10 px-10">
+          <div className="flex items-center">
+            <MdOutlineArrowBackIos />
+            <Link to="/dashboard">
+              <p> Back</p>
+            </Link>
+          </div>
           <div className="overflow-auto pt-10">
             <table className="text-sm ">
               <thead>

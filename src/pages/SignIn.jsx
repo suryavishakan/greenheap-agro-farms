@@ -42,17 +42,20 @@ const SignIn = () => {
   };
 
   return (
-    <div className="container text-gray-800 mx-auto">
-      <div className="flex flex-col justify-center items-center py-12">
-        <h2 className="text-3xl font-medium">Welcome back!</h2>
-        <p className="text-sm mt-1 font-medium ">
+    <div className="container text-gray-800 mx-auto h-screen py-32 font-medium">
+      <div className="flex flex-col justify-center items-center">
+        <h2 className="text-3xl font-semibold">Welcome back!</h2>
+        <p className="text-sm mt-1 font-medium">
           Don't have an account ?{" "}
           <Link to="/sign-up">
             <span className="underline underline-offset-1">Sign up</span>
           </Link>
         </p>
       </div>
-      <form className="max-w-xl mx-auto px-3" onSubmit={handleSubmit}>
+      <form
+        className="max-w-xl mx-auto px-3 rounded-md mt-10"
+        onSubmit={handleSubmit}
+      >
         {/* Input for email */}
         <label
           htmlFor="email"
@@ -107,7 +110,7 @@ const SignIn = () => {
           </span>
         </Link>
 
-        <button className="bg-slate-100 w-full text-center p-3 rounded-full">
+        <button className="bg-green-700 text-white w-full text-center p-3 rounded-full">
           Sign In
         </button>
       </form>

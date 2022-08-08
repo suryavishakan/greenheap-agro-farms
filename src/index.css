@@ -134,7 +134,7 @@ body {
 /* Client Table Styles */
 
 table {
-  border-collapse: collapse;
+  border-collapse: collapse !important;
   background-color: white;
   text-align: left;
   overflow: hidden;
@@ -170,8 +170,14 @@ th {
 
 td {
   padding: 0.2rem 1rem;
+  font-weight: 500;
 }
 
 tr:nth-child(even) {
   background-color: rgb(247, 251, 255);
+}
+
+viewTable th,
+td {
+  padding: 1rem 5rem;
 }

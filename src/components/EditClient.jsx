@@ -5,6 +5,8 @@ import { doc, updateDoc, getDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebase/firebase.config";
 // react toastify
 import { toast } from "react-toastify";
+// react icons
+import { MdOutlineArrowBackIos } from "react-icons/md";
 
 const EditClient = () => {
   const initialState = {
@@ -95,8 +97,13 @@ const EditClient = () => {
     return <h3>Loading...</h3>;
   }
   return (
-    <div className="container mx-auto">
-      <Link to="/dashboard">Back</Link>
+    <div className="container mx-auto py-10">
+      <div className="px-32 flex items-center">
+        <MdOutlineArrowBackIos />
+        <Link to="/dashboard">
+          <p> Back</p>
+        </Link>
+      </div>
       <form className="max-w-xl mx-auto px-3" onSubmit={handleSubmit}>
         {/* Input for docNo */}
         <label

@@ -3,16 +3,13 @@ import { Link } from "react-router-dom";
 // images
 import logo from "../assets/logo.svg";
 
-const navItems = [
-  { id: 1, name: "Login", link: "/sign-in" },
-  { id: 2, name: "Sign Up", link: "/sign-up" },
-];
+const navItems = [{ id: 1, name: "Login", link: "/sign-in" }];
 
 const Navbar = () => {
   return (
-    <header>
+    <header className="bg-slate-100">
       <div className="container mx-auto">
-        <nav className="flex items-center justify-between font-medium mx-5 py-6 text-black">
+        <nav className="flex items-center justify-between font-medium mx-5 py-4 text-black">
           <img
             src={logo}
             alt="logo"
@@ -24,7 +21,10 @@ const Navbar = () => {
             {navItems.map((navItem) => (
               <div key={navItem.id}>
                 <Link to={navItem.link}>
-                  <span className="px-5 py-2 font-medium" href={navItem.link}>
+                  <span
+                    className="px-5 py-2 font-medium bg-green-700 text-white"
+                    href={navItem.link}
+                  >
                     {navItem.name}
                   </span>
                 </Link>

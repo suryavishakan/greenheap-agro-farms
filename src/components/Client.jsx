@@ -3,6 +3,8 @@ import { Link, useParams } from "react-router-dom";
 // firestore
 import { getDoc, doc } from "firebase/firestore";
 import { db } from "../firebase/firebase.config";
+// icons
+import { MdOutlineArrowBackIos } from "react-icons/md";
 
 const Client = () => {
   const [client, setClient] = useState(null);
@@ -28,12 +30,15 @@ const Client = () => {
   }
 
   return (
-    <div className="container mx-auto py-20">
-      <Link to="/dashboard">
-        <p>Back</p>
-      </Link>
-      <div className="flex items-center justify-center pb-20">
-        <table className="text-xs">
+    <div className="container mx-auto py-10">
+      <div className="px-32 flex items-center">
+        <MdOutlineArrowBackIos />
+        <Link to="/dashboard">
+          <p> Back</p>
+        </Link>
+      </div>
+      <>
+        <table className="mx-auto viewTable">
           <tbody>
             <tr>
               <td>Doc No</td>
@@ -89,7 +94,7 @@ const Client = () => {
             </tr>
           </tbody>
         </table>
-      </div>
+      </>
     </div>
   );
 };

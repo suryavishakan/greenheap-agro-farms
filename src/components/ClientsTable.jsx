@@ -30,17 +30,27 @@ const ClientsTable = ({ client, id, index }) => {
         <td>{client.data.documents}</td>
         <td>{client.data.remarks}</td>
         <td>{client.data.report}</td>
-        <td>{client.data.status}</td>
+        <td className="text-center">
+          <span
+            className={
+              client.data.status === "completed"
+                ? "text-center py-2 px-4 rounded-sm bg-green-100"
+                : "text-center py-2 px-4 rounded-sm bg-orange-100"
+            }
+          >
+            {client.data.status}
+          </span>
+        </td>
         <td className="flex flex-col items-center justify-center mt-5">
           <React.Fragment>
             <Link to={`/dashboard/client/${client.id}`}>
-              <span>View</span>
+              <span className="underline underline-offset-1">View</span>
             </Link>
             <Link to={`/dashboard/edit-client/${client.id}`}>
-              <FaEdit className="text-base font-medium mt-3" />
+              <FaEdit className="text-base font-medium mt-3 text-slate-600" />
             </Link>
             <MdDelete
-              className="font-medium text-xl mt-3"
+              className="font-medium text-xl mt-3 text-red-400 cursor-pointer"
               onClick={() => handleDelete(client.id)}
             />
           </React.Fragment>

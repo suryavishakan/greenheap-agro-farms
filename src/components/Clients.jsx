@@ -34,24 +34,32 @@ const Clients = () => {
     navigate(`/dashboard/place/${place}`);
   };
 
+  // remove duplicate places
+  let places = [];
+  for (let i = 0; i < clients?.length; i++) {
+    places.push(clients[i].data.village);
+  }
+  let placesFilter = places.filter((place, index) => {
+    return places.indexOf(place) === index;
+  });
+
   return (
     <div className="container mx-auto py-10 px-10">
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center pb-5">
         <h3 className="font-medium text-lg">Dashboard</h3>
         <div className="flex">
           <h3 className="mr-2">Filter Places : </h3>
-          {clients &&
-            clients.map((client) => (
-              <React.Fragment key={client.id}>
-                <span>#</span>
-                <p
-                  className="underline underline-offset-1 mr-1 cursor-pointer"
-                  onClick={(e) => handleVillage(e.target.innerHTML)}
-                >
-                  {client.data.village}
-                </p>
-              </React.Fragment>
-            ))}
+          {placesFilter.map((place, index) => (
+            <React.Fragment key={index}>
+              <span>#</span>
+              <p
+                className="underline underline-offset-1 mr-1 cursor-pointer"
+                onClick={(e) => handleVillage(e.target.innerHTML)}
+              >
+                {place}
+              </p>
+            </React.Fragment>
+          ))}
         </div>
         <div className="flex items-center justify-between">
           <button
@@ -108,7 +116,7 @@ const Clients = () => {
         <h3>Loading...</h3>
       ) : clients && clients.length > 0 ? (
         <>
-          <div className="overflow-auto pt-10">
+          <div className="overflow-auto pt-10" style={{ height: "560px" }}>
             <table className="text-sm ">
               <thead>
                 <tr>

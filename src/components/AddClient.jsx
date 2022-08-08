@@ -5,6 +5,8 @@ import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebase/firebase.config";
 // react toastify
 import { toast } from "react-toastify";
+// icons
+import { MdOutlineArrowBackIos } from "react-icons/md";
 
 const AddClient = () => {
   const initialState = {
@@ -67,7 +69,12 @@ const AddClient = () => {
 
   return (
     <div className="container mx-auto py-12">
-      <Link to="/dashboard">Back</Link>
+      <div className="px-32 flex items-center">
+        <MdOutlineArrowBackIos />
+        <Link to="/dashboard">
+          <p> Back</p>
+        </Link>
+      </div>
       <form className="max-w-xl mx-auto px-3" onSubmit={handleSubmit}>
         {/* Input for docNo */}
         <label
