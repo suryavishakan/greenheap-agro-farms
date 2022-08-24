@@ -1,14 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 // firebase
-import {
-  collection,
-  getDocs,
-  query,
-  where,
-  orderBy,
-  limit,
-} from "firebase/firestore";
+import { collection, getDocs, query, where, orderBy } from "firebase/firestore";
 import { db } from "../firebase/firebase.config";
 // components
 import ClientsTable from "../components/ClientsTable";
@@ -30,8 +23,7 @@ const Search = () => {
         const q = query(
           collectionRef,
           where("contact", "==", params.name),
-          orderBy("timeStamp", "asc"),
-          limit(10)
+          orderBy("timeStamp", "asc")
         );
 
         // execute query

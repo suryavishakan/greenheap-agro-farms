@@ -47,7 +47,7 @@ const Clients = () => {
     <div className="container mx-auto py-10 px-10">
       <div className="flex justify-between items-center pb-5">
         <h3 className="font-medium text-lg">Dashboard</h3>
-        <div className="flex">
+        <div className="flex mx-2 items-center ">
           <h3 className="mr-2">Filter Places : </h3>
           {placesFilter.map((place, index) => (
             <React.Fragment key={index}>

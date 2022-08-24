@@ -41,19 +41,19 @@ const ClientsTable = ({ client, id, index }) => {
             {client.data.status}
           </span>
         </td>
-        <td className="flex flex-col items-center justify-center mt-5">
-          <React.Fragment>
-            <Link to={`/dashboard/client/${client.id}`}>
-              <span className="underline underline-offset-1">View</span>
-            </Link>
-            <Link to={`/dashboard/edit-client/${client.id}`}>
-              <FaEdit className="text-base font-medium mt-3 text-slate-600" />
-            </Link>
-            <MdDelete
-              className="font-medium text-xl mt-3 text-red-400 cursor-pointer"
-              onClick={() => handleDelete(client.id)}
-            />
-          </React.Fragment>
+        <td className="mt-5">
+          <Link to={`/dashboard/client/${client.id}`}>
+            <span className="underline underline-offset-1 inline-block mr-4">
+              View
+            </span>
+          </Link>
+          <Link to={`/dashboard/edit-client/${client.id}`}>
+            <FaEdit className="text-base font-medium text-slate-600 inline-block mr-4" />
+          </Link>
+          <MdDelete
+            className="font-medium text-xl text-red-400 cursor-pointer inline-block"
+            onClick={() => handleDelete(client.id)}
+          />
         </td>
       </tr>
     </React.Fragment>

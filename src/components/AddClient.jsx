@@ -193,7 +193,7 @@ const AddClient = () => {
           htmlFor="village"
           className="after:content-['*'] after:ml-0.5 after:text-red-500 text-sm"
         >
-          Village
+          Place
         </label>
         <input
           type="text"

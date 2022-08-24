@@ -6,7 +6,6 @@ import {
   getDocs,
   query,
   orderBy,
-  limit,
 } from "firebase/firestore";
 import { db } from "../firebase/firebase.config";
 // toastify
@@ -25,7 +24,7 @@ export const useCollection = (c) => {
           const docRef = collection(db, "clients");
 
           // create a query
-          const q = query(docRef, orderBy("timeStamp", "asc"), limit(10));
+          const q = query(docRef, orderBy("timeStamp", "asc"));
 
           // execute query
           const docSnap = await getDocs(q);
