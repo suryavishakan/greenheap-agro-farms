@@ -1,5 +1,6 @@
 import React from "react";
 import { Navigate, Outlet } from "react-router-dom";
+// custom hook
 import { useAuthStatus } from "../hooks/useAuthStatus";
 
 const PrivateRoute = () => {
