@@ -123,12 +123,13 @@ const Clients = () => {
                   <th>S.No</th>
                   <th>Doc No</th>
                   <th>Name</th>
-                  <th>Client Details (Family)</th>
+                  <th>Nominees(S/O or D/O)</th>
                   <th>Age</th>
                   <th>Address</th>
                   <th>Contact</th>
-                  <th>Email</th>
-                  <th>Place</th>
+                  <th>Current Address</th>
+                  <th>Project</th>
+                  <th>Pincode</th>
                   <th>Extent</th>
                   <th>Documents Submitted</th>
                   <th>Remarks</th>

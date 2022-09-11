@@ -49,7 +49,7 @@ const Client = () => {
               <td>{client.name}</td>
             </tr>
             <tr>
-              <td>Client Details (Family)</td>
+              <td>Nominees(S/O or D/O)</td>
               <td>{client.family}</td>
             </tr>
             <tr>
@@ -65,12 +65,16 @@ const Client = () => {
               <td>{client.contact}</td>
             </tr>
             <tr>
-              <td>Email</td>
-              <td>{client.email}</td>
+              <td>Current Address</td>
+              <td>{client.currentAddress}</td>
             </tr>
             <tr>
-              <td>Place</td>
-              <td>{client.place}</td>
+              <td>Project</td>
+              <td>{client.village}</td>
+            </tr>
+            <tr>
+              <td>Pincode</td>
+              <td>{client.pincode}</td>
             </tr>
             <tr>
               <td>Extent</td>

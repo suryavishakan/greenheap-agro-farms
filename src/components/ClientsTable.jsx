@@ -24,8 +24,9 @@ const ClientsTable = ({ client, id, index }) => {
         <td>{client.data.age}</td>
         <td>{client.data.address}</td>
         <td>{client.data.contact}</td>
-        <td>{client.data.email}</td>
+        <td>{client.data.currentAddress}</td>
         <td>{client.data.village}</td>
+        <td>{client.data.pincode}</td>
         <td>{client.data.extent}</td>
         <td>{client.data.documents}</td>
         <td>{client.data.remarks}</td>

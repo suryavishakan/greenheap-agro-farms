@@ -16,13 +16,14 @@ const EditClient = () => {
     age: "",
     address: "",
     contact: "",
-    email: "",
+    currentAddress: "",
     extent: "",
     documents: "",
     remarks: "",
     report: "",
     status: "",
     village: "",
+    pincode: "",
   };
   const [data, setData] = useState(initialState);
   const {
@@ -32,13 +33,14 @@ const EditClient = () => {
     age,
     address,
     contact,
-    email,
+    currentAddress,
     extent,
     documents,
     remarks,
     report,
     status,
     village,
+    pincode,
   } = data;
 
   const [client, setClient] = useState(null);
@@ -142,7 +144,7 @@ const EditClient = () => {
           htmlFor="family"
           className="after:content-['*'] after:ml-0.5 after:text-red-500 text-sm"
         >
-          Client Details (Family)
+          Nominees(S/O or D/O)
         </label>
         <input
           type="text"
@@ -161,7 +163,7 @@ const EditClient = () => {
           Age
         </label>
         <input
-          type="number"
+          type="text"
           name="age"
           id="age"
           value={age}
@@ -193,7 +195,7 @@ const EditClient = () => {
           Contact
         </label>
         <input
-          type="number"
+          type="text"
           name="contact"
           id="contact"
           value={contact}
@@ -203,16 +205,16 @@ const EditClient = () => {
         />
         {/* Input for email */}
         <label
-          htmlFor="email"
+          htmlFor="currentAddress"
           className="after:content-['*'] after:ml-0.5 after:text-red-500 text-sm"
         >
-          Email
+          Current Address
         </label>
         <input
-          type="email"
-          name="email"
-          id="email"
-          value={email}
+          type="text"
+          name="currentAddress"
+          id="currentAddress"
+          value={currentAddress}
           onChange={handleChange}
           placeholder="Enter client email"
           className="border-2 text-sm mt-1 w-full p-2 indent-1 rounded-lg focus:outline-none mb-2"
@@ -222,7 +224,7 @@ const EditClient = () => {
           htmlFor="village"
           className="after:content-['*'] after:ml-0.5 after:text-red-500 text-sm"
         >
-          Place
+          Project
         </label>
         <input
           type="text"
