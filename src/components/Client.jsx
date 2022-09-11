@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+// react router
 import { Link, useParams } from "react-router-dom";
 // firestore
 import { getDoc, doc } from "firebase/firestore";
+// firestore db
 import { db } from "../firebase/firebase.config";
 // icons
 import { MdOutlineArrowBackIos } from "react-icons/md";
