@@ -1,4 +1,5 @@
 import React from "react";
+// react router
 import { Navigate, Outlet } from "react-router-dom";
 // custom hook
 import { useAuthStatus } from "../hooks/useAuthStatus";
