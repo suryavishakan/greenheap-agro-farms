@@ -23,11 +23,11 @@ const Clients = () => {
   };
 
   const handlePending = () => {
-    navigate("/dashboard/pending");
+    navigate("/dashboard/Pending");
   };
 
   const handleComplete = () => {
-    navigate("/dashboard/completed");
+    navigate("/dashboard/Completed");
   };
 
   const handleVillage = (place) => {
@@ -79,7 +79,7 @@ const Clients = () => {
               type="search"
               id="search-dropdown"
               className="py-1.5 px-2 indent-2 text-sm  bg-gray-50 border border-gray-300 focus:outline-none rounded-tl-lg rounded-bl-lg"
-              placeholder="Search contact..."
+              placeholder="Search pincode..."
               value={search}
               onChange={handleChange}
             />

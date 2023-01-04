@@ -16,13 +16,14 @@ const AddClient = () => {
     age: "",
     address: "",
     contact: "",
-    email: "",
+    currentAddress: "",
     extent: "",
     documents: "",
     remarks: "",
     report: "",
     status: "",
     village: "",
+    pincode: "",
   };
   const [data, setData] = useState(initialState);
   const {

@@ -34,7 +34,7 @@ const ClientsTable = ({ client, id, index }) => {
         <td className="text-center">
           <span
             className={
-              client.data.status === "completed"
+              client.data.status === "Completed"
                 ? "text-center py-2 px-4 rounded-sm bg-green-100"
                 : "text-center py-2 px-4 rounded-sm bg-orange-100"
             }
@@ -42,14 +42,14 @@ const ClientsTable = ({ client, id, index }) => {
             {client.data.status}
           </span>
         </td>
-        <td className="mt-5">
+        <td className="flex flex-col mt-2">
           <Link to={`/dashboard/client/${client.id}`}>
-            <span className="underline underline-offset-1 inline-block mr-4">
+            <span className="underline underline-offset-1 inline-block">
               View
             </span>
           </Link>
           <Link to={`/dashboard/edit-client/${client.id}`}>
-            <FaEdit className="text-base font-medium text-slate-600 inline-block mr-4" />
+            <FaEdit className="text-base font-medium text-slate-600 inline-block" />
           </Link>
           <MdDelete
             className="font-medium text-xl text-red-400 cursor-pointer inline-block"
